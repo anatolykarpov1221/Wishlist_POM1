@@ -4,12 +4,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-
-import java.time.Duration;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
@@ -43,13 +38,13 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage verifyAlertPresent() {
-        isAlertPresent();
-        Alert text = driver.switchTo().alert();
-        assert (text.getText().equals("Please fill out this field."));
-        text.accept();
-        return this;
-    }
+//    public LoginPage verifyAlertPresent() {
+//        isAlertPresent();
+//        Alert text = driver.switchTo().alert();
+//        assert (text.getText().equals("Please fill out this field."));
+//        text.accept();
+//        return this;
+//    }
 
     @FindBy(css = ".home-button")
     WebElement buttonHome;
@@ -57,5 +52,11 @@ public class LoginPage extends BasePage {
     public LoginPage clickOnHomeLink() {
         click(buttonHome);
         return new LoginPage(driver);
+    }
+    @FindBy(css = ".error-message")
+    WebElement error;
+    public LoginPage verifyErrorMessage(String text) {
+        Assert.assertTrue(error.getText().contains(text));
+        return this;
     }
 }
