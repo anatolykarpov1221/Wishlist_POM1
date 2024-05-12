@@ -1,8 +1,10 @@
 package com.wishlist.tests;
 
+import com.wishlist.models.UserLogin;
 import com.wishlist.pages.HomePage;
 import com.wishlist.pages.LoginPage;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LogInTests extends TestBase {
@@ -33,8 +35,19 @@ public class LogInTests extends TestBase {
                 .enterPersonalData("dudkina@web.de", "")
                 .clickOnLogInButton()
                 .verifyErrorMessage("Error");
-
     }
+
+
+    @Test(dataProvider="loginNewUserFromCsvFile", dataProviderClass  = DataProvider.class)
+    public void fillLogInFormFromDataProviderWithCsvFile(UserLogin user) {
+        new LoginPage(driver)
+                .enterPersonalData(user.getEmail(), user.getPassword())
+                .clickOnLogInButton()
+                .verifySuccessLogInButton("Welcome!");
+    }
+
+
+
 
 //    @AfterMethod
 //    public void tearDown() {

@@ -1,11 +1,14 @@
-package com.wishlist.tests;
+package com.wishlist.tests.wishlistTests.positive;
 
 import com.wishlist.pages.HomePage;
 import com.wishlist.pages.LoginPage;
+import com.wishlist.tests.TestBase;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class WishListTests extends TestBase {
+    WebDriver driver;
 
     @BeforeMethod
     public void precondition() {
@@ -28,6 +31,5 @@ public class WishListTests extends TestBase {
         new HomePage(driver)
                 .clickIwantWishListButton()
                 .verifySaveButton("Save");
-
     }
 }

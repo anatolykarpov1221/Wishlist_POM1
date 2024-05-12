@@ -46,6 +46,5 @@ public class SignUpPage extends BasePage{
     public SignUpPage verifyErrorMessage(String text) {
         Assert.assertTrue(error.getText().contains(text));
         return this;
-
     }
 }

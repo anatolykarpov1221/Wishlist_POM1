@@ -7,7 +7,6 @@ import org.testng.Assert;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -82,4 +81,5 @@ public class HomePage extends BasePage {
         clickWithJS(iWantbutton, 0, 700);
         return new HomePage(driver);
     }
+
 }

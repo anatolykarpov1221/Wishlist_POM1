@@ -1,19 +1,10 @@
 package com.wishlist.tests;
 
-import com.wishlist.models.User;
 import com.wishlist.pages.HomePage;
 import com.wishlist.pages.SignUpPage;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 
 public class SignUpTests extends TestBase {
@@ -40,7 +31,6 @@ public class SignUpTests extends TestBase {
                 .enterPersonalData("Lena", "Dudkina", "dudkina@web.de", "Berlin2024!")
                 .clickOnSignUpButtonRegistr()
                 .verifyErrorMessage("Error");
-
     }
 //    @AfterMethod
 //    public void postCondition(){

@@ -38,7 +38,6 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-
     @FindBy(css = ".home-button")
     WebElement buttonHome;
 
@@ -52,4 +51,7 @@ public class LoginPage extends BasePage {
         Assert.assertTrue(error.getText().contains(text));
         return this;
     }
+
+//    public LoginPage enterPersonalData() {
+//    }
 }
