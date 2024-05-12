@@ -33,7 +33,6 @@ public class LogInTests extends TestBase {
                 .enterPersonalData("dudkina@web.de", "")
                 .clickOnLogInButton()
                 .verifyErrorMessage("Error");
-
     }
 
 //    @AfterMethod

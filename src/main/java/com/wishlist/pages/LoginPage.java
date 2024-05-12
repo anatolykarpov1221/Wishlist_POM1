@@ -38,7 +38,6 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-
     @FindBy(css = ".home-button")
     WebElement buttonHome;
 

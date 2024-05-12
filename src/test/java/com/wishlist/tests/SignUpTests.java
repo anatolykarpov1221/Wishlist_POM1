@@ -40,7 +40,6 @@ public class SignUpTests extends TestBase {
                 .enterPersonalData("Lena", "Dudkina", "dudkina@web.de", "Berlin2024!")
                 .clickOnSignUpButtonRegistr()
                 .verifyErrorMessage("Error");
-
     }
 //    @AfterMethod
 //    public void postCondition(){

@@ -42,6 +42,5 @@ public class DataProvider {
 //
 //
 //        return list.iterator();
-
 //    }
 }
