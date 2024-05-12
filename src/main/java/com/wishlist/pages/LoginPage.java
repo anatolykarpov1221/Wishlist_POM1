@@ -38,13 +38,6 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-//    public LoginPage verifyAlertPresent() {
-//        isAlertPresent();
-//        Alert text = driver.switchTo().alert();
-//        assert (text.getText().equals("Please fill out this field."));
-//        text.accept();
-//        return this;
-//    }
 
     @FindBy(css = ".home-button")
     WebElement buttonHome;

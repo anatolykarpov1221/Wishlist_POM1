@@ -8,5 +8,6 @@ public class AboutUsTests extends TestBase {
     @Test
     public void clickOnAboutUsLinkTest() {
         new HomePage(driver).clickOnAboutUsLink().verifyAboutUs("О нас");
+
     }
 }
