@@ -31,5 +31,6 @@ public class WishListTests extends TestBase {
         new HomePage(driver)
                 .clickIwantWishListButton()
                 .verifySaveButton("Save");
+
     }
 }

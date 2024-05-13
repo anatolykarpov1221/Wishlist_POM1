@@ -48,6 +48,7 @@ public class BasePage {
     public boolean isAlertPresent() {
     new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.alertIsPresent());
+
         return true;
     }
 }

@@ -81,5 +81,4 @@ public class HomePage extends BasePage {
         clickWithJS(iWantbutton, 0, 700);
         return new HomePage(driver);
     }
-
 }

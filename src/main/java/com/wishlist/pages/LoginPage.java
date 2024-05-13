@@ -52,6 +52,5 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-//    public LoginPage enterPersonalData() {
-//    }
+
 }

@@ -32,6 +32,7 @@ public class SignUpTests extends TestBase {
                 .clickOnSignUpButtonRegistr()
                 .verifyErrorMessage("Error");
     }
+
 //    @AfterMethod
 //    public void postCondition(){
 //        removeUser();

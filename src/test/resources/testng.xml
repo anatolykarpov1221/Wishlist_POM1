@@ -7,4 +7,5 @@
             <class name="com.wishlist.tests.LogInTests"/>
         </classes>
     </test>
+
 </suite>
