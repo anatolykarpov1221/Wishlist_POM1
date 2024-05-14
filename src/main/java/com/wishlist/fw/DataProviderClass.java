@@ -12,15 +12,15 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DataProviderClass {
-    @DataProvider
-    public Iterator<Object[]> addNewUser() {
-        List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"dudkina1@web.de", "Berli2024!"});
-        list.add(new Object[]{"dudkina2@web.de", "Berli2024!"});
-        list.add(new Object[]{"dudkina3@web.de", "Berli2024!"});
-
-        return list.iterator();
-    }
+//    @DataProvider
+//    public Iterator<Object[]> addNewUser() {
+//        List<Object[]> list = new ArrayList<>();
+//        list.add(new Object[]{"dudkina1@web.de", "Berli2024!"});
+//        list.add(new Object[]{"dudkina2@web.de", "Berli2024!"});
+//        list.add(new Object[]{"dudkina3@web.de", "Berli2024!"});
+//
+//        return list.iterator();
+//    }
 
     @DataProvider
     public Iterator<Object[]> loginNewUserFromCsvFile() throws IOException {
@@ -30,7 +30,8 @@ public class DataProviderClass {
         String line = reader.readLine();
         while (line != null) {
             String[] split = line.split(",");
-            list.add(new Object[]{new UserLogin(split[0], split[1])});
+            list.add(new Object[]{new UserLogin() });
+                   // .setEmail(split[0]).s});
         }
         line = reader.readLine();
         return list.iterator();

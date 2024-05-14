@@ -1,5 +1,6 @@
 package com.wishlist.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,10 @@ public class BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         js = (JavascriptExecutor) driver;
+    }
+
+    public boolean isElementPresent(WebElement element){
+        return element.isDisplayed();
     }
 
     public void click(WebElement element) {
@@ -48,7 +53,6 @@ public class BasePage {
     public boolean isAlertPresent() {
     new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.alertIsPresent());
-
         return true;
     }
 }

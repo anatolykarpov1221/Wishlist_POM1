@@ -1,6 +1,5 @@
 package com.wishlist.pages;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,11 +29,11 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @FindBy(css = ".welcome-message")
-    WebElement verifyButton;
+    @FindBy(css = ".user-icon")
+    WebElement userIcon;
 
-    public LoginPage verifySuccessLogInButton(String text) {
-        Assert.assertTrue(verifyButton.getText().contains(text));
+    public LoginPage verifySuccessIcon() {
+        Assert.assertTrue(isElementPresent(userIcon));
         return this;
     }
 
@@ -51,6 +50,4 @@ public class LoginPage extends BasePage {
         Assert.assertTrue(error.getText().contains(text));
         return this;
     }
-
-
 }

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class SignUpPage extends BasePage{
+public class SignUpPage extends BasePage {
     public SignUpPage(WebDriver driver) {
         super(driver);
     }

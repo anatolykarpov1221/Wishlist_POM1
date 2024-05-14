@@ -10,11 +10,13 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
+
     @FindBy(css = "[href='/about']")
     WebElement aboutUsLink;
 
     public HomePage clickOnAboutUsLink() {
         click(aboutUsLink);
+
         return new HomePage(driver);
     }
 
@@ -74,11 +76,25 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    @FindBy(css = "[href='/createWishlist']")
+    @FindBy(xpath = "//button[text()='I want a Wishlist']")
     WebElement iWantbutton;
 
     public HomePage clickIwantWishListButton() {
-        clickWithJS(iWantbutton, 0, 700);
+        clickWithJS(iWantbutton, 0, 500);
         return new HomePage(driver);
+    }
+    //[href="/privacy-policy"]
+    @FindBy(css = "[href='/privacy-policy']")
+    WebElement privacyPolicyLink;
+    public HomePage clickOnPrivacyPolicyLink() {
+        clickWithJS(privacyPolicyLink, 0, 500);
+        return new HomePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='PrivacyPolicy']")
+    WebElement textPolicy;
+    public HomePage verifyPrivacyPolicy(String text) {
+        Assert.assertTrue(textPolicy.getText().contains(text));
+        return this;
     }
 }

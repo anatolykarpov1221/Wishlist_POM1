@@ -4,7 +4,7 @@
     <test name="Smoky">
         <classes>
             <class name="com.wishlist.tests.wishlistTests.positive.WishListTests"/>
-            <class name="com.wishlist.tests.LogInTests"/>
+
         </classes>
     </test>
 

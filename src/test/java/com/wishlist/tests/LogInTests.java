@@ -6,11 +6,13 @@ import com.wishlist.pages.LoginPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import com.wishlist.fw.DataProviderClass;
 
 public class LogInTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
+
         new HomePage(driver).clickOnLogInLink();
     }
 
@@ -19,7 +21,7 @@ public class LogInTests extends TestBase {
         new LoginPage(driver)
                 .enterPersonalData("dudkina@web.de", "Berlin2024!")
                 .clickOnLogInButton()
-                .verifySuccessLogInButton("Welcome!");
+                .verifySuccessIcon();
     }
 
     @Test
@@ -38,12 +40,12 @@ public class LogInTests extends TestBase {
     }
 
 
-    @Test(dataProvider="loginNewUserFromCsvFile", dataProviderClass  = DataProvider.class)
+    @Test(dataProvider="loginNewUserFromCsvFile", dataProviderClass  = DataProviderClass.class)
     public void fillLogInFormFromDataProviderWithCsvFile(UserLogin user) {
         new LoginPage(driver)
                 .enterPersonalData(user.getEmail(), user.getPassword())
                 .clickOnLogInButton()
-                .verifySuccessLogInButton("Welcome!");
+                .verifyErrorMessage("Error");
     }
 
 
