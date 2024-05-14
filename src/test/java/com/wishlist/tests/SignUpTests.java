@@ -10,7 +10,6 @@ import java.util.Random;
 public class SignUpTests extends TestBase {
     @BeforeMethod
     public void precondition() {
-
         new HomePage(driver).clickOnSignUpLink();
     }
 

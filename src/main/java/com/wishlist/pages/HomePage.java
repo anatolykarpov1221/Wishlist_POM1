@@ -28,7 +28,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    @FindBy(css = "[href='/login']")
+    @FindBy(css = "ul.nav-list :nth-child(3)")
     WebElement logInLink;
 
     public HomePage clickOnLogInLink() {
@@ -83,9 +83,11 @@ public class HomePage extends BasePage {
         clickWithJS(iWantbutton, 0, 500);
         return new HomePage(driver);
     }
+
     //[href="/privacy-policy"]
     @FindBy(css = "[href='/privacy-policy']")
     WebElement privacyPolicyLink;
+
     public HomePage clickOnPrivacyPolicyLink() {
         clickWithJS(privacyPolicyLink, 0, 500);
         return new HomePage(driver);
@@ -93,6 +95,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//span[.='PrivacyPolicy']")
     WebElement textPolicy;
+
     public HomePage verifyPrivacyPolicy(String text) {
         Assert.assertTrue(textPolicy.getText().contains(text));
         return this;

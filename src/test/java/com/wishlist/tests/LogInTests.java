@@ -4,7 +4,6 @@ import com.wishlist.models.UserLogin;
 import com.wishlist.pages.HomePage;
 import com.wishlist.pages.LoginPage;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.wishlist.fw.DataProviderClass;
 
@@ -12,7 +11,6 @@ public class LogInTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-
         new HomePage(driver).clickOnLogInLink();
     }
 
@@ -47,6 +45,15 @@ public class LogInTests extends TestBase {
                 .clickOnLogInButton()
                 .verifyErrorMessage("Error");
     }
+
+    @Test(dataProvider="validLoginData", dataProviderClass  = DataProviderClass.class)
+    public void fillLogInFormFromDataProviderWithCsvFileNEW(String validemail, String validPassword) {
+        new LoginPage(driver)
+                .enterPersonalData(validemail,validPassword)
+                .clickOnLogInButton()
+                .verifyErrorMessage("Error");
+    }
+
 
 
 

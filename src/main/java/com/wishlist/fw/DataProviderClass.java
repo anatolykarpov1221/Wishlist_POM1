@@ -1,5 +1,7 @@
 package com.wishlist.fw;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import com.wishlist.models.UserLogin;
 import org.testng.annotations.DataProvider;
 
@@ -12,30 +14,39 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DataProviderClass {
-//    @DataProvider
-//    public Iterator<Object[]> addNewUser() {
+
+    //    @DataProvider
+//    public Iterator<Object[]> loginNewUserFromCsvFile() throws IOException {
 //        List<Object[]> list = new ArrayList<>();
-//        list.add(new Object[]{"dudkina1@web.de", "Berli2024!"});
-//        list.add(new Object[]{"dudkina2@web.de", "Berli2024!"});
-//        list.add(new Object[]{"dudkina3@web.de", "Berli2024!"});
+//        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/UserDataLogin.csv")));
 //
+//        String line = reader.readLine();
+//        while (line != null) {
+//            String[] data = line.split(",");
+//            list.add(new Object[]{new UserLogin(data[0],data[1])});
+//                  // .setEmail(split[0]).s});
+//        }
+//        line = reader.readLine();
 //        return list.iterator();
 //    }
-
-    @DataProvider
-    public Iterator<Object[]> loginNewUserFromCsvFile() throws IOException {
-        List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/UserDataLogin.csv")));
-
-        String line = reader.readLine();
-        while (line != null) {
-            String[] split = line.split(",");
-            list.add(new Object[]{new UserLogin() });
-                   // .setEmail(split[0]).s});
+    private Object[][] readDataFromCSV(String fileName) {
+        String filePath = "./src/test/resources/csv/" + fileName;
+        List<Object[]> data = new ArrayList<>();
+        try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
+            String[] line;
+            while ((line = reader.readNext()) != null) {
+                data.add(line);
+            }
+        } catch (IOException | CsvValidationException e) {
+            throw new RuntimeException(e);
         }
-        line = reader.readLine();
-        return list.iterator();
-
+        return data.toArray(new Object[data.size()][]);
     }
+
+    @DataProvider(name = "validLoginData")
+    public Object[][] getValidLoginData() {
+        return readDataFromCSV("UserDataLogin.csv");
+    }
+
 }
 

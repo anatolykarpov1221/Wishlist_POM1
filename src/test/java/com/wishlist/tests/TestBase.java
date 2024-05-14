@@ -7,8 +7,6 @@ import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-
 public class TestBase {
     WebDriver driver;
 
