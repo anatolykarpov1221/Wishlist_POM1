@@ -104,7 +104,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @FindBy(css = "my-wishlists")
+    @FindBy(xpath = "//span['my-wishlists']")
     WebElement mywishlists;
 
     public LoginPage verifyElement(String text) {
